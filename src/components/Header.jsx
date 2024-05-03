@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import ytLogo from "../images/yt-logo.png";
@@ -18,6 +18,8 @@ const Header = () => {
 
   const { loading, mobileMenu, setMobileMenu } = useContext(Context);
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
   const navigate = useNavigate();
 
   const searchQueryHandler = (event) => {
@@ -36,8 +38,21 @@ const Header = () => {
   const { pathname } = useLocation();
   const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
 
+  useEffect(() => {
+    const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < 768); // Adjust the breakpoint as needed
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial screen size
+
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+}, []);
+
   return (
-    <div className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-white dark:bg-black">
+    <div className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-black dark:bg-white">
       {loading && <Loader />}
       <div className="flex h-5 items-center">
         {pageName !== "video" && (
@@ -53,7 +68,7 @@ const Header = () => {
           </div>
         )}
         <img
-          className="h-full hidden dark:md:block"
+          className={`h-full ${isSmallScreen ? 'hidden' : 'dark:md:block'}`}
           src={ytLogo}
           alt="Youtube"
         />
