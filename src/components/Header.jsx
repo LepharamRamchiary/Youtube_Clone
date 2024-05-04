@@ -57,13 +57,13 @@ const Header = () => {
       <div className="flex h-5 items-center">
         {pageName !== "video" && (
           <div
-            className="flex md:hidden md:mr-6 cursor-pointer justify-center h-10 w-10 rounded-full hover:bg-[#303030]/[0.6]"
+            className="flex md:hidden md:mr-6 cursor-pointer items-center justify-center h-10 w-10 rounded-full hover:bg-[#303030]/[0.6]"
             onClick={mobileMenuToggle}
           >
             {mobileMenu ? (
-              <CgClose className="bg-white text-xl" />
+              <CgClose className="text-white text-xl" />
             ) : (
-              <SlMenu className="bg-white text-xl" />
+              <SlMenu className="text-white text-xl" />
             )}
           </div>
         )}
