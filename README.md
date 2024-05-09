@@ -11,3 +11,25 @@ This application replicates some of the core features of YouTube, allowing users
 
 ## Installation
 1. Clone the repository:
+   ```
+   https://github.com/LepharamRamchiary/Youtube_Clone
+   ```
+2. Install dependencies:
+   ```
+   cd youtube-clone
+   npm install
+   ```
+3. Set up Rapid API:
+    * Sign up for a Rapid API account and obtain an API key for the YouTube Data API.
+    * Create a `.env` file in the root directory of the project.
+    * Add your API key to the `.env` file:
+    ```
+    REACT_APP_YOUTUBE_API_KEY=your_api_key_here
+    ```
+4. Start the development server:
+   ```
+   npm start
+   ```
+
+## Contributing
+Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
