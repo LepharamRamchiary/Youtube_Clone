@@ -51,7 +51,7 @@ const LeftNav = () => {
         })}
         <hr className="my-5 border-white/[0.2]" />
         <div className="text-white/[0.5] text-[12px]">
-          Clone By: JS Dev Hindi
+          Clone By: JS Dev Hindi and adding some modifications of my own.
         </div>
       </div>
     </div>
