@@ -9,17 +9,15 @@ import { IoIosSearch } from "react-icons/io";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
+import { MdKeyboardVoice } from "react-icons/md";
 
 import { Context } from "../context/contextApi";
 import Loader from "../shared/loader";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
-
   const { loading, mobileMenu, setMobileMenu } = useContext(Context);
-
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-
   const navigate = useNavigate();
 
   const searchQueryHandler = (event) => {
@@ -95,6 +93,9 @@ const Header = () => {
           onClick={() => searchQueryHandler("searchButton")}
         >
           <IoIosSearch className="text-white text-xl" />
+        </button>
+        <button className="hidden sm:flex items-center justify-center h-10 w-10 rounded-full bg-[#303030]/[0.6] ml-2">
+          <MdKeyboardVoice className="text-white text-xl cursor-pointer"  />
         </button>
       </div>
       <div className="flex items-center">
